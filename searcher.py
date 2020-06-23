@@ -19,7 +19,7 @@ class Searcher:
 
             f.close()
 
-        results = sorted([(v, k) for (k, v) in results.item()])
+        results = sorted([(v, k) for (k, v) in results.items()])
 
         return results[:limit]
 
