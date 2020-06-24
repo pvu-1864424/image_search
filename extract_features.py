@@ -8,7 +8,7 @@ ap.add_argument('-d', '--dataset', required = True,
     help = 'Path to the directory that contains the images to be indexed')
 ap.add_argument('-i', '--extract_features', required = True,
     help = 'Path to where the computed index will be stored')
-args = vars(ap.parse_args())
+args = vars(ap.parse_args(['-d/--dataset', '-i/--extract_features']))
 
 cd = ColorDescriptor((8, 12, 3))
 
