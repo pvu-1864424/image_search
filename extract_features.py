@@ -6,15 +6,15 @@ from cv2 import cv2
 ap = argparse.ArgumentParser()
 ap.add_argument('-d', '--dataset', required = True,
     help = 'Path to the directory that contains the images to be indexed')
-ap.add_argument('-i', '--index', required = True,
+ap.add_argument('-i', '--extract_features', required = True,
     help = 'Path to where the computed index will be stored')
 args = vars(ap.parse_args())
 
 cd = ColorDescriptor((8, 12, 3))
 
-output = open(args['index'], 'w')
+output = open(args['extract_features'], 'w')
 
-for imagePath in glob.glob(args['dataset'] + '/*.png'):
+for imagePath in glob.glob(args['dataset'] + '/*.jpg'):
     imageID = imagePath[imagePath.rfind('/') + 1:]
     image = cv2.imread(imagePath)
 

@@ -21,14 +21,14 @@ class ColorDescriptor:
 
         for (startX, endX, startY, endY) in segments:
             cornerMask = np.zeros(image.shape[:2], dtype = 'uint8')
-            cv2.retangle(cornerMask, (startX, startY), (endX, endY), 255, -1)
+            cv2.rectangle(cornerMask, (startX, startY), (endX, endY), 255, -1)
             cornerMask = cv2.subtract(cornerMask, ellipMask)
 
             hist = self.histogram(image, cornerMask)
             features.extend(hist)
 
         hist = self.histogram(image, ellipMask)
-        featuers.extend(hist)
+        features.extend(hist)
 
         return features
 
